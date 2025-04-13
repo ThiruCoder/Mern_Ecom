@@ -46,14 +46,13 @@ export default function CartPage() {
     const [addCartProducts, setAddCartProducts] = useState<Product[]>([])
     const [currentQuantity, setCurrentQuentity] = useState(addCartProducts[0]?.quantity || 0)
 
-    const backendUrl = 'https://porfolio-backend-spbi.onrender.com'
+    const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
     const backendTrilUrl = 'http://localhost:5000'
-
 
     const updateQuantity = (id: string, quantity: number, totalPrice: number) => {
         const updateQuantity = async () => {
             try {
-                await axios.put<{ data: Product[] }>(`${backendTrilUrl}/products/updateAddCartById/${id}`, { quantity, totalPrice })
+                await axios.put<{ data: Product[] }>(`${backendUrl}/products/updateAddCartById/${id}`, { quantity, totalPrice })
                     .then((response) => console.log(response.data.data))
                     .catch((error) => console.log(error))
             } catch (error) {
@@ -72,7 +71,7 @@ export default function CartPage() {
     useEffect(() => {
         const getProjectDetails = async () => {
             try {
-                await axios.get<{ data: Product[] }>(`${backendTrilUrl}/products/getAddCarts`)
+                await axios.get<{ data: Product[] }>(`${backendUrl}/products/getAddCarts`)
                     .then((response) => setAddCartProducts(response.data.data))
                     .catch((error) => console.log(error))
             } catch (error) {

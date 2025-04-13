@@ -55,12 +55,12 @@ function ProductsPage() {
 
   const [products, setProducts] = useState<Product[]>([])
 
-  const backendUrl = 'https://porfolio-backend-spbi.onrender.com'
+  const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
   const backendTrilUrl = 'http://localhost:5000'
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        await axios.get<Product[]>(`${backendTrilUrl}/products/getProducts`)
+        await axios.get<Product[]>(`${backendUrl}/products/getProducts`)
           .then((response) => setProducts(response.data))
           .catch((error) => console.log(error))
       } catch (error) {

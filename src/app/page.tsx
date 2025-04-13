@@ -44,12 +44,12 @@ export default function Home() {
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
 
-  const backendUrl = 'https://porfolio-backend-spbi.onrender.com'
+  const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
   const backendTrilUrl = 'http://localhost:5000'
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        await axios.get<Product[]>(`${backendTrilUrl}/products/getProducts`)
+        await axios.get<Product[]>(`${backendUrl}/products/getProducts`)
           .then((response) => setProducts(response.data))
           .catch((error) => console.log(error))
       } catch (error) {
@@ -63,7 +63,7 @@ export default function Home() {
   useEffect(() => {
     const getCategoryDetails = async () => {
       try {
-        await axios.get<HeadCategory>(`${backendTrilUrl}/products/getCategories`)
+        await axios.get<HeadCategory>(`${backendUrl}/products/getCategories`)
           .then((response) => setCategories(response.data.data))
           .catch((error) => console.log(error))
       } catch (error) {

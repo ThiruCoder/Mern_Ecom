@@ -46,8 +46,8 @@ export default function ProductPage({ params }: ProductPageProps) {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
-  const backendUrl = 'https://porfolio-backend-spbi.onrender.com';
-  const backendTrilUrl = 'http://localhost:5000';
+  const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
+  const backendTrilUrl = 'http://localhost:5000'
 
   const id = params.id;
 
@@ -55,7 +55,7 @@ export default function ProductPage({ params }: ProductPageProps) {
     const getProductById = async () => {
       try {
         setLoading(true);
-        const response = await axios.post<{ data: Product }>(`${backendTrilUrl}/products/getProductsById/${id}`);
+        const response = await axios.post<{ data: Product }>(`${backendUrl}/products/getProductsById/${id}`);
         const productData = response.data.data;
         setProduct(productData);
 

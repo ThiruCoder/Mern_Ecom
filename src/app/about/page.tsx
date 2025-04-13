@@ -28,12 +28,12 @@ type APIResponse = {
 export default function AboutPage() {
   const [projects, setProjects] = useState<Project[]>([])
 
-  const backendUrl = 'https://porfolio-backend-spbi.onrender.com'
+  const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
   const backendTrilUrl = 'http://localhost:5000'
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        const { data } = await axios.get<APIResponse>(`${backendTrilUrl}/projects/allproject`);
+        const { data } = await axios.get<APIResponse>(`${backendUrl}/projects/allproject`);
         console.log(data);
 
         setProjects(data.data)

@@ -48,7 +48,7 @@ export function ProductCard({
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([])
 
-  const backendUrl = 'https://porfolio-backend-spbi.onrender.com'
+  const backendUrl = 'https://mern-ecom-backend-q7di.onrender.com'
   const backendTrilUrl = 'http://localhost:5000'
 
 
@@ -56,7 +56,7 @@ export function ProductCard({
     try {
       console.log('data', data);
 
-      await axios.post(`${backendTrilUrl}/products/createAddCart`, data, {
+      await axios.post(`${backendUrl}/products/createAddCart`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -74,7 +74,7 @@ export function ProductCard({
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        await axios.get<Product[]>(`${backendTrilUrl}/products/getProducts`)
+        await axios.get<Product[]>(`${backendUrl}/products/getProducts`)
           .then((response) => setProducts(response.data))
           .catch((error) => console.log(error))
       } catch (error) {

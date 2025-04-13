@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "start": "next start -p 3000",
-    "dev": "next dev"
+    "dev": "set PORT=10000 && next dev",
+    "build": "rimraf .next && next build",
+    "start": "next start -p %PORT% || next start -p 3000"
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",

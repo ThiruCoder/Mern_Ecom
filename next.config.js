@@ -8,7 +8,6 @@ const nextConfig = {
     // Also ignore TypeScript errors during production build
     ignoreBuildErrors: true,
   },
-  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -22,7 +21,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-  }
+  },
 };
 
 export default nextConfig;
